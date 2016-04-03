@@ -15,5 +15,7 @@ public class Main{
 		GameEngine engine = new GameEngine(gp, v);
 		frame.getContentPane().add(gp, BorderLayout.CENTER);
 		frame.setVisible(true);
+		
+		engine.start();
 	}
 }
