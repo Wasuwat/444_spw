@@ -51,6 +51,13 @@ public class GameEngine{
 			generateEnemy();
 		}
 		
+		Iterator<Enemy> e_iter = enemies.iterator();
+		while(e_iter.hasNext()){
+			Enemy e = e_iter.next();
+			e.proceed();
+		}
+		
 		gp.updateGameUI();
+		
 	}
 }
