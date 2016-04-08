@@ -23,6 +23,7 @@ public class GamePanel extends JPanel{
 	public void updateGameUI(){
 		big.clearRect(0, 0, 400, 600);
 		
+		
 		for(Sprite s : sprites){
 			s.draw(big);
 		}
