@@ -32,7 +32,8 @@ public class GameEngine implements KeyListener, GameReporter{
 			
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				process();		
+				process();
+				checkSpaceShip();
 			}
 		});
 		timer.setRepeats(true);
@@ -69,10 +70,13 @@ public class GameEngine implements KeyListener, GameReporter{
 		
 		Rectangle2D.Double vr = v.getRectangle();
 		Rectangle2D.Double er;
+		
 		for(Enemy e : enemies){
 			er = e.getRectangle();
 			if(er.intersects(vr)){
-				die();
+				//die();
+				v.hit();
+				e.hit();
 				return;
 			}
 		}
@@ -107,6 +111,11 @@ public class GameEngine implements KeyListener, GameReporter{
 	
 	public int getHP(){
 		return v.gethp();
+	}
+	
+	public void checkSpaceShip(){
+		if(!v.isAlive())
+			die();
 	}
 	
 	@Override
